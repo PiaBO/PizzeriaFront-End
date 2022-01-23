@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 export abstract class RESTDAOService<T, K> {
-  protected baseUrl = environment.apiMongoURL;
+  protected baseUrl = environment.apiURL;
 
   constructor(protected http: HttpClient, entidad: string, protected option = {}) {
     this.baseUrl += entidad;

@@ -33,7 +33,6 @@ export class PizzaViewModelService {
   // TO DO:
   // sistema de notificaciones
   // servicio de auth
-  // private navigation: NavigationService (common-services)
   constructor(/*protected notify: NotificationService,*/
     protected out: LoggerService,
     protected dao: PizzasDAOService,
