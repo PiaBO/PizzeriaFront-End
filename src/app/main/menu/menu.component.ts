@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginComponent } from 'src/app/security/login-components/login.component';
+import { LoginService } from 'src/app/security/services/security.service';
 
 @Component({
   selector: 'app-menu',
@@ -8,18 +10,7 @@ import { Component, OnInit } from '@angular/core';
 
 
 export class MenuComponent implements OnInit {
-  login = "";
-  // menu = [{ texto: 'Ingredients', icono: '', componente: IngredientComponent}];
-
-  // actual: any = this.menu[0].componente;
-  constructor() { }
-
-  public seleccionar(indice: number): void {
-    // this.actual = this.menu[indice].componente;
-  }
-  public inicio(){
-    // this.actual = this.menu[0];
-  }
+  constructor(public loginSrv: LoginService, public logOut: LoginComponent) { }
 
   ngOnInit(): void {
   }

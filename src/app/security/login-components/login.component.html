@@ -1,0 +1,13 @@
+<section class="login">
+  <article class="card-login ">
+      <form #miForm="ngForm" class="form" action="#">
+          <h2>Sign in</h2>
+          <label for="email">Email</label>
+          <input id="email" type="email"  name="email" placeholder="" [(ngModel)]="txtUsuario" required autofocus/>
+          <label for="password">Password</label>
+          <input id="password" type="password" placeholder="" name="password" [(ngModel)]="txtPassword" required/>
+          <a class="link" routerLink="../register">Don't have an account?</a>
+          <a class="ink btn-black btn btn-animated" (click)="logInOut()">Sign In</a>
+      </form>
+  </article>
+</section>

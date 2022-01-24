@@ -19,6 +19,8 @@ import { environment } from 'src/environments/environment';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { CommonComponentModule } from './common';
+import { SecurityModule } from './security';
+import { LoginComponent } from './security/login-components/login.component';
 
 @NgModule({
   declarations: [
@@ -36,10 +38,12 @@ import { CommonComponentModule } from './common';
     UserModule,
     HttpClientModule,
     RouterModule,
-    CommonComponentModule
+    CommonComponentModule,
+    SecurityModule
   ],
   providers: [
     LoggerService,
+    LoginComponent,
     { provide: ERROR_LEVEL, useValue: environment.ERROR_LEVEL  }  ],
   bootstrap: [AppComponent]
 })

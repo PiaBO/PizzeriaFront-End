@@ -1,0 +1,19 @@
+<section class="login">
+  <article class="card-login ">
+      <form #miForm="ngForm" class="form" action="#">
+          <h2>Sign Up</h2>
+          <label for="email">Email</label>
+          <input id="email" type="email"  name="email" placeholder="Email" [(ngModel)]="email" required autofocus email/>
+          <label for="name">Name</label>
+          <input id="name" type="text"  name="name" placeholder="name" [(ngModel)]="name" required autofocus/>
+          <label for="surname">Surname</label>
+          <input id="surname" type="text"  name="surname" placeholder="surname" [(ngModel)]="surname" required autofocus/>
+          <label for="passwordValue">Password</label>
+          <input id="passwordValue" type="password" placeholder="Password" name="passwordValue" [(ngModel)]="passwordValue" required/>
+          <label for="passwordValue">Confirm Password</label>
+          <input id="passwordConfirm" type="password" placeholder="Repeat password" name="passwordConfirm" [(ngModel)]="passwordConfirm" required/>
+          <a class="link" routerLink="users/login">Already have an account?</a>
+          <button class="ink btn-black btn btn-animated" (click)="send()" [disabled]="miForm.invalid">Sign Up</button>
+      </form>
+  </article>
+</section>

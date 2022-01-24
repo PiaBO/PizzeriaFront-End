@@ -7,12 +7,12 @@
           <span class="heading-primary-main">Authentic homemade pizzas</span>
           <span class="heading-primary-sub">Since 2021</span>
       </h1>
-      <a routerLinkActive="active" routerLink="/login" class="btn btn-white btn-animated">Log in</a>
+      <a *ngIf="!loginSrv.isAutenticated" routerLinkActive="active" routerLink="users/login" class="btn btn-white btn-animated">Log in</a>
   </div>
   <ul class="horizontal">
       <li><a class="active link" routerLinkActive="active" routerLink="/pizzas">MENU</a></li>
       <li><a class="link"routerLinkActive="active" routerLink="/ingredients">INGREDIENTS</a></li>
       <li><a class="link"routerLinkActive="active" routerLink="/pizzas/admin">PIZZAS</a></li>
-      <li class="rightli link" style="float:right"><a routerLinkActive="active" routerLink="/demos">Log out</a></li>
+      <li class="rightli link" style="float:right"><a *ngIf="loginSrv.isAutenticated" routerLinkActive="active" routerLink="/" (click)="logOut.logInOut()">Log out</a></li>
   </ul>
 </header>
