@@ -6,6 +6,7 @@ import { RESTDAOService } from 'src/app/common/services/RestService';
 import { LoggerService } from 'src/lib/my-core/services/logger.service';
 import { NavigationService } from 'src/app/common/services/navigation.service';
 import { ModoCRUD } from 'src/app/common/services/tipos';
+import { AuthService } from 'src/app/security/services/security.service';
 const AUTH_REQUIRED = new HttpContextToken<boolean>(() => false);
 
 @Injectable({
@@ -15,8 +16,8 @@ const AUTH_REQUIRED = new HttpContextToken<boolean>(() => false);
 export class IngredientsDAOService extends RESTDAOService<any, any> {
   //TO DO: seguridad, controlar rol user
   constructor(http: HttpClient) {
-    super(http, 'ingredients', { });
-    //super(http, 'ingredients', { context: new HttpContext().set(AUTH_REQUIRED, true) });
+    //super(http, 'ingredients', { });
+    super(http, 'ingredients',{context: {AUTH_REQUIRED:true}} /*{ context: new HttpContext().set(AUTH_REQUIRED, true) }*/);
   }
 }
 
@@ -37,12 +38,14 @@ export class IngredientViewModelService {
     protected out: LoggerService,
     protected dao: IngredientsDAOService,
     protected router: Router,
-    private navigation: NavigationService
+    private navigation: NavigationService,
+    public auth: AuthService,
     ) { }
 
   public get Modo(): ModoCRUD { return this.modo; }
   public get Listado(): Array<any> { return this.listado; }
   public get Elemento(): any { return this.elemento; }
+  public get isAutenticated(): boolean { return this.auth.isAutenticated; }
 
   public list(): void {
     this.dao.query().subscribe({

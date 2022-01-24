@@ -14,7 +14,7 @@
     <tr *ngFor="let item of VM.Listado">
       <td data-label="id">{{ item.id }}</td>
       <td data-label="name">{{ item.name }}</td>
-      <td data-label="type">Ingredient</td>
+      <td data-label="type">{{ item.type }}</td>
       <td data-label="price">{{ item.price }}</td>
       <td data-label="Action">
         <!-- <button class="btn" (click)="VM.view(item.id)">

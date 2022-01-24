@@ -1,5 +1,5 @@
 <h1 class="heading-primary-main">Ingredients</h1>
-<a routerLinkActive="active"[routerLink]="['add']" class="btn btn-white btn-animated">ADD</a>
+<!-- <a routerLinkActive="active"[routerLink]="['add']" class="btn btn-white btn-animated">ADD</a> -->
 
 <table>
   <thead>
@@ -29,12 +29,12 @@
         <button class="btn" [routerLink]="[item.id]">
           <i class="pi pi-eye"></i>
         </button>
-        <button class="btn" [routerLink]="[item.id, 'edit']">
+        <!-- <button class="btn" [routerLink]="[item.id, 'edit']">
           <i class="pi pi-pencil"></i>
         </button>
         <button class="btn" (click)="VM.delete(item.id)">
           <i class="pi pi-trash"></i>
-        </button>
+        </button> -->
       </td>
     </tr>
   </tbody>

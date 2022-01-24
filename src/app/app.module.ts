@@ -21,6 +21,7 @@ import { RouterModule } from '@angular/router';
 import { CommonComponentModule } from './common';
 import { SecurityModule } from './security';
 import { LoginComponent } from './security/login-components/login.component';
+import { AuthInterceptor } from './security/services/security.service';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { LoginComponent } from './security/login-components/login.component';
   providers: [
     LoggerService,
     LoginComponent,
-    { provide: ERROR_LEVEL, useValue: environment.ERROR_LEVEL  }  ],
+    { provide: ERROR_LEVEL, useValue: environment.ERROR_LEVEL  },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true, },  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
