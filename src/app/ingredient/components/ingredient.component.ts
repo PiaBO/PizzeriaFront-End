@@ -70,7 +70,7 @@ export class IngredientEditComponent implements OnInit, OnDestroy {
       (params: ParamMap) => {
         const id = params?.get('id')??'';
         if(id){
-          this.vm.view(id);
+          this.vm.edit(id);
         }else{
         //  this.router.navigate(['/404.html'])
         }

@@ -1,16 +1,19 @@
-
 <button class="btn btn-back btn-submit" (click)="VM.cancel()"><i class="pi pi-arrow-left"></i></button>
 <section class="login">
   <article class="card-login ">
-      <form #miForm="ngForm" class="form" action="#">
-          <h2>Edit Ingredient</h2>
-          <label for="id">ID</label>
-          <input id="id" type="text" name="id" [(ngModel)]="VM.Elemento.id" #id="ngModel" required autofocus/>
-          <label for="name">Name</label>
-          <input id="name" name="name" type="text" [(ngModel)]="VM.Elemento.name" #name="ngModel" required autofocus/>
-          <label for="price">Price</label>
-          <input id="price"name="price" type="text" [(ngModel)]="VM.Elemento.price" #price="ngModel" required autofocus/>
-          <input class="btn btn-submit" type="button" (click)="VM.send()"  (cancel)="VM.cancel()" value="SAVE"/>
-        </form>
+    <form #miForm="ngForm" class="form" action="#">
+      <h2>Edit Ingredient</h2>
+      <label for="id">ID</label>
+      <input id="id" type="text" name="id" [(ngModel)]="VM.Elemento.id" #id="ngModel" required autofocus />
+      <label for="name">Name</label>
+      <input id="name" name="name" type="text" [(ngModel)]="VM.Elemento.name" #name="ngModel" required autofocus />
+      <label for="price">Price</label>
+      <div class="form-group">
+        <input type="button" class="btn btn-success" value="Enviar" (click)="VM.send()" [disabled]="miForm.invalid">
+        <input type="button" class="btn btn-info" value="Volver" (click)="VM.cancel()">
+      </div>
+      <!-- <input id="price"name="price" type="text" [(ngModel)]="VM.Elemento.price" #price="ngModel" required autofocus/> -->
+      <!-- <app-form-buttons (send)="VM.send()" [send-disabled]="miForm.invalid" (cancel)="VM.cancel()"></app-form-buttons> -->
+    </form>
   </article>
 </section>

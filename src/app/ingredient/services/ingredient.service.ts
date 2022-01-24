@@ -94,6 +94,8 @@ export class IngredientViewModelService {
     this.navigation.back();
   }
   public send(): void {
+    console.log("send");
+    console.log(this.modo);
     switch (this.modo) {
       case 'add':
         this.dao.add(this.elemento).subscribe({

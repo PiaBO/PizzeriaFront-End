@@ -20,7 +20,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     RouterModule.forChild(routes),
-    TableModule,
+    TableModule, CommonModule
 
   ],
   exports:[INGREDIENT_COMPONENTS, IngredientRecipeComponent]

@@ -18,6 +18,7 @@ import { ERROR_LEVEL, LoggerService } from 'src/lib/my-core/services/logger.serv
 import { environment } from 'src/environments/environment';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { CommonComponentModule } from './common';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { RouterModule } from '@angular/router';
     UserModule,
     HttpClientModule,
     RouterModule,
+    CommonComponentModule
   ],
   providers: [
     LoggerService,
