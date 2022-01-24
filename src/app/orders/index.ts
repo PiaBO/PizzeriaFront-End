@@ -1,1 +1,1 @@
-export * from './orders.module'
+export * from './order.module'

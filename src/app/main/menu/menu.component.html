@@ -11,8 +11,9 @@
   </div>
   <ul class="horizontal">
       <li><a class="active link" routerLinkActive="active" routerLink="/pizzas">MENU</a></li>
-      <li><a class="link"routerLinkActive="active" routerLink="/ingredients">INGREDIENTS</a></li>
-      <li><a class="link"routerLinkActive="active" routerLink="/pizzas/admin">PIZZAS</a></li>
+      <li><a *ngIf="loginSrv.isAutenticated" class="link"routerLinkActive="active" routerLink="/ingredients">INGREDIENTS</a></li>
+      <li><a *ngIf="loginSrv.isAutenticated" class="link"routerLinkActive="active" routerLink="/pizzas/admin">PIZZAS</a></li>
+      <li><a *ngIf="loginSrv.isAutenticated" class="link"routerLinkActive="active" routerLink="/orders">ORDERS</a></li>
       <li class="rightli link" style="float:right"><a *ngIf="loginSrv.isAutenticated" routerLinkActive="active" routerLink="/" (click)="logOut.logInOut()">Log out</a></li>
   </ul>
 </header>

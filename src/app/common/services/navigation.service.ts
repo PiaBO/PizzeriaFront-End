@@ -32,7 +32,6 @@ export class NavigationService {
       delta--;
     }
     const url = this.history.pop() ?? defecto;
-    console.log("url"+url)
     this.router.navigateByUrl(url);
     this.logger.log(`Back to ${url}`);
   }

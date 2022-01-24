@@ -6,46 +6,43 @@ import { RESTDAOService } from 'src/app/common/services/RestService';
 import { LoggerService } from 'src/lib/my-core/services/logger.service';
 import { NavigationService } from 'src/app/common/services/navigation.service';
 import { ModoCRUD } from 'src/app/common/services/tipos';
-import { AuthService } from 'src/app/security/services/security.service';
 const AUTH_REQUIRED = new HttpContextToken<boolean>(() => false);
 
 @Injectable({
 
   providedIn: 'root'
 })
-export class IngredientsDAOService extends RESTDAOService<any, any> {
+export class OrdersDAOService extends RESTDAOService<any, any> {
   //TO DO: seguridad, controlar rol user
   constructor(http: HttpClient) {
-    //super(http, 'ingredients', { });
-    super(http, 'ingredients',{context: {AUTH_REQUIRED:true}} /*{ context: new HttpContext().set(AUTH_REQUIRED, true) }*/);
+    super(http, 'orders', { });
+    //super(http, 'orders', { context: new HttpContext().set(AUTH_REQUIRED, true) });
   }
 }
 
 @Injectable({
   providedIn: 'root'
 })
-export class IngredientViewModelService {
+export class OrderViewModelService {
   protected modo: ModoCRUD = 'list';
   protected listado: Array<any> = [];
   protected elemento: any = {};
   protected idOriginal: any = null;
-  protected listURL = '/ingredients';
+  protected listURL = '/orders';
 
   // TO DO:
   // sistema de notificaciones
   // servicio de auth
   constructor(/*protected notify: NotificationService,*/
     protected out: LoggerService,
-    protected dao: IngredientsDAOService,
+    protected dao: OrdersDAOService,
     protected router: Router,
     private navigation: NavigationService,
-    public auth: AuthService,
     ) { }
 
   public get Modo(): ModoCRUD { return this.modo; }
   public get Listado(): Array<any> { return this.listado; }
   public get Elemento(): any { return this.elemento; }
-  public get isAutenticated(): boolean { return this.auth.isAutenticated; }
 
   public list(): void {
     this.dao.query().subscribe({
@@ -99,6 +96,7 @@ export class IngredientViewModelService {
   public send(): void {
     switch (this.modo) {
       case 'add':
+        this.elemento.state = "submitted";
         this.dao.add(this.elemento).subscribe({
           next: data => this.cancel(),
           error: err => this.out.error(err.message)

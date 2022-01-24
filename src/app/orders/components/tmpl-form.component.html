@@ -1,0 +1,31 @@
+<button class="btn btn-back btn-submit" (click)="VM.cancel()"><i class="pi pi-arrow-left"></i></button>
+<section class="login">
+  <article class="card-login ">
+    <form #miForm="ngForm" class="form" action="#">
+      <h2 *ngIf="VM.Modo == 'edit'">Edit Order</h2>
+      <h2 *ngIf="VM.Modo == 'add'">New Order</h2>
+      <label *ngIf="VM.Modo == 'edit'" for="id">ID</label>
+      <input *ngIf="VM.Modo == 'edit'" id="id" type="text" name="id" [(ngModel)]="VM.Elemento.id" #id="ngModel"
+        disabled="false" required autofocus />
+      <label for="name">Pizza id</label>
+      <input id="pizzaId" name="pizzaId" type="text" [(ngModel)]="VM.Elemento.pizzaId" #pizzaId="ngModel" required autofocus />
+      <label *ngIf="VM.Modo == 'edit'" for="state">State</label>
+      <select *ngIf="VM.Modo == 'edit'" name="type" id="type" [(ngModel)]="VM.Elemento.state" #state="ngModel" required>
+        <option value="submitted">Submitted</option>
+        <option value="processed">Processed</option>
+        <option value="sent">Sent</option>
+        <option value="delivered">Delivered</option>
+        <option value="cancelled">Cancelled</option>
+      </select>
+
+      <label for="address">Address</label>
+      <input id="address" name="address" type="text" [(ngModel)]="VM.Elemento.address" #address="ngModel" required autofocus />
+        <div class="form-group">
+          <input type="button" class="btn btn-success" value="Enviar" (click)="VM.send()" [disabled]="miForm.invalid">
+          <input type="button" class="btn btn-info" value="Volver" (click)="VM.cancel()">
+        </div>
+        <!-- <input id="price"name="price" type="text" [(ngModel)]="VM.Elemento.price" #price="ngModel" required autofocus/> -->
+        <!-- <app-form-buttons (send)="VM.send()" [send-disabled]="miForm.invalid" (cancel)="VM.cancel()"></app-form-buttons> -->
+    </form>
+  </article>
+</section>

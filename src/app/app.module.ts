@@ -11,7 +11,7 @@ import { TabMenuModule } from 'primeng/tabmenu';
 import { IngredientModule } from './ingredient/ingredient.module';
 import { PizzaModule } from './pizza/pizza.module';
 import { CommentModule } from './comment/comment.module';
-import { OrdersModule } from './orders/orders.module';
+import { OrdersModule } from './orders/order.module';
 import { UserModule } from './user/user.module';
 import { FooterComponent } from './main/footer/footer.component';
 import { ERROR_LEVEL, LoggerService } from 'src/lib/my-core/services/logger.service';

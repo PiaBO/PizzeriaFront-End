@@ -1,0 +1,5 @@
+<ng-container [ngSwitch]="VM.Modo" >
+  <app-order-view *ngSwitchCase="'view'"></app-order-view>
+  <app-order-edit *ngSwitchCase="'edit'"></app-order-edit>
+  <app-order-list *ngSwitchDefault></app-order-list>
+</ng-container>
